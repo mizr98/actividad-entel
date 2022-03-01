@@ -1,0 +1,23 @@
+/*
+*   Botones
+*/
+.button {
+  border: 1px;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 0.7rem;
+  width: 100%;
+}
+
+/*
+*   Modificador del color del boton
+*/
+.button-blue {
+  background-color: $color-blue;
+  color: white;
+}
+
+.button-naranjo {
+  background-color: $color-orange;
+  color: white;
+}

@@ -1,0 +1,23 @@
+/*
+*   Alertas
+*/
+
+.alerta {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+
+  p {
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.alerta-verde {
+  color: white;
+  background-color: $color-green;
+}

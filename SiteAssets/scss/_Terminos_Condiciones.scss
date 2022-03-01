@@ -1,0 +1,52 @@
+/*
+*   Terminos y Condiciones
+*/
+
+.terminos__condiciones {
+  margin-bottom: 2rem;
+
+  .terminos__condiciones__body {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    .cards__container {
+      grid-column: span 2;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .terminos__condiciones__acciones {
+      align-self: flex-end;
+
+      .checkbox_container {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+@media only screen and(max-width:900px) {
+  .terminos__condiciones {
+    .terminos__condiciones__body {
+      grid-template-columns: auto;
+
+      .cards__container {
+        grid-column: auto;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .terminos__condiciones__acciones {
+        align-self: flex-end;
+
+        .checkbox_container {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}

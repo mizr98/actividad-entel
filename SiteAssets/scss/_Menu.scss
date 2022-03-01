@@ -1,0 +1,86 @@
+/*
+*   Seccion Menu
+*/
+
+.logo {
+  padding: 1rem;
+
+  svg {
+    height: 60px;
+    width: 70px;
+  }
+}
+.button__responsive {
+  display: none;
+}
+
+.menu__item {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 1rem;
+  padding: 0.5rem;
+
+  svg {
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    background-color: $color-white;
+    border-radius: 10px 0px 0px 10px;
+    color: $color-blue;
+    transition: 0.3s ease;
+
+    svg {
+      path {
+        fill: $color-blue;
+      }
+    }
+  }
+}
+.menu__item-activo {
+  background-color: $color-white;
+  border-radius: 10px 0px 0px 10px;
+  color: $color-blue;
+  transition: 0.3s ease;
+
+  svg {
+    path {
+      fill: $color-blue;
+    }
+  }
+}
+
+@media only screen and(max-width:900px) {
+  .logo {
+    text-align: center;
+  }
+
+  .menu__item {
+    display: none;
+  }
+
+  .button__responsive {
+    display: block;
+    float: left;
+    margin-top: 20px;
+  }
+
+  .button__responsive svg {
+    width: auto;
+    height: auto;
+  }
+
+  .menu.responsive {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    a {
+      display: flex;
+      text-align: left;
+    }
+  }
+}

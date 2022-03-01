@@ -1,0 +1,34 @@
+/*
+*   Seccion Grid
+*/
+
+.section__container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-areas: "menu contenido";
+  height: 100vh;
+
+  .menu {
+    background-color: $color-blue;
+    color: $color-white;
+    grid-area: menu;
+  }
+
+  .contenido {
+    grid-area: contenido;
+    padding: 1rem;
+    padding-right: 2rem;
+    overflow-y: scroll;
+  }
+}
+
+@media only screen and(max-width:900px) {
+  .section__container {
+    grid-template-areas: "menu" "contenido";
+    grid-gap: 0ch;
+
+    .contenido {
+      padding: 1rem;
+    }
+  }
+}

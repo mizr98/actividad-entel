@@ -1,0 +1,65 @@
+.md-checkbox {
+  position: relative;
+  text-align: left;
+
+  &.md-checkbox-inline {
+    display: inline-block;
+  }
+
+  label {
+    cursor: pointer;
+    display: inline;
+    line-height: 1.25em;
+    vertical-align: top;
+    clear: both;
+    padding-left: 1px;
+
+    &:not(:empty) {
+      padding-left: 0.75em;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &:before {
+      width: 1em;
+      height: 1em;
+      background: #fff;
+      border: 2px solid $border-grey;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+  }
+
+  input[type="checkbox"] {
+    outline: 0;
+    visibility: hidden;
+    width: 1.25em;
+    margin: 0;
+    display: block;
+    float: left;
+    font-size: inherit;
+
+    &:checked + label {
+      &:before {
+        background: $color-green;
+        border: 0.125em solid $color-green;
+      }
+
+      &:after {
+        transform: translate(0.2em, 0.3em) rotate(-45deg);
+        width: 0.7em;
+        height: 0.375em;
+        border: 0.125em solid #fff;
+        border-top-style: none;
+        border-right-style: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,658 @@
+/*
+*   Background Colors
+*/
+/*
+*   Border Colors
+*/
+/*
+*   Font Colors
+*/
+@import url(https://fonts.googleapis.com/css?family=Barlow:400,500,600,700,800&display=swap);
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Barlow, sans-serif;
+  font-weight: normal;
+}
+
+/*
+*   Estilos Varios
+*/
+.lista__edificios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+}
+
+.lista__edificios .seleccion__edificio {
+  position: relative;
+  display: inline-block;
+}
+
+.lista__edificios .seleccion__edificio svg {
+  display: block;
+}
+
+.lista__edificios .seleccion__edificio .seleccion__edificio__contenido {
+  position: absolute;
+  top: 50%;
+  left: 7%;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+  color: white;
+}
+
+.lista__edificios .seleccion__edificio .seleccion__edificio__contenido p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+.lista__edificios .seleccion__edificio .seleccion__edificio__contenido p svg {
+  margin-right: 0.5rem;
+}
+
+.lista__edificios .edificios__listado {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media only screen and (max-width: 900px) {
+  .lista__edificios {
+    display: block;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+  }
+  .lista__edificios .seleccion__edificio {
+    width: 100%;
+    position: initial;
+    display: inline-block;
+  }
+  .lista__edificios .seleccion__edificio svg {
+    display: none;
+  }
+  .lista__edificios .seleccion__edificio .seleccion__edificio__contenido {
+    position: initial;
+    top: initial;
+    left: initial;
+    -webkit-transform: initial;
+    transform: initial;
+    color: white;
+    background-color: #002eff;
+    padding: 1rem;
+    border-radius: 9px 9px 0 0;
+  }
+  .lista__edificios .seleccion__edificio .seleccion__edificio__contenido p svg {
+    display: block;
+  }
+  .lista__edificios .edificios__listado {
+    width: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 1rem 2rem;
+    line-height: 2rem;
+  }
+}
+
+/*
+*   Seccion Grid
+*/
+.section__container {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+      grid-template-areas: "menu contenido";
+  height: 100vh;
+}
+
+.section__container .menu {
+  background-color: #002eff;
+  color: #ffffff;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: menu;
+}
+
+.section__container .contenido {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: contenido;
+  padding: 1rem;
+  padding-right: 2rem;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 900px) {
+  .section__container {
+        grid-template-areas: "menu" "contenido";
+    grid-gap: 0ch;
+  }
+  .section__container .contenido {
+    padding: 1rem;
+  }
+}
+
+/*
+*   Seccion Menu
+*/
+.logo {
+  padding: 1rem;
+}
+
+.logo svg {
+  height: 60px;
+  width: 70px;
+}
+
+.button__responsive {
+  display: none;
+}
+
+.menu__item {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-left: 1rem;
+  padding: 0.5rem;
+}
+
+.menu__item svg {
+  margin-right: 0.5rem;
+}
+
+.menu__item:hover {
+  background-color: #ffffff;
+  border-radius: 10px 0px 0px 10px;
+  color: #002eff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.menu__item:hover svg path {
+  fill: #002eff;
+}
+
+.menu__item-activo {
+  background-color: #ffffff;
+  border-radius: 10px 0px 0px 10px;
+  color: #002eff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.menu__item-activo svg path {
+  fill: #002eff;
+}
+
+@media only screen and (max-width: 900px) {
+  .logo {
+    text-align: center;
+  }
+  .menu__item {
+    display: none;
+  }
+  .button__responsive {
+    display: block;
+    float: left;
+    margin-top: 20px;
+  }
+  .button__responsive svg {
+    width: auto;
+    height: auto;
+  }
+  .menu.responsive {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+  .menu.responsive a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+  }
+}
+
+/*
+*   Contenido de los Estacionamientos
+*/
+.contenido__estacionamientos {
+  display: -ms-grid;
+  display: grid;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  padding: 1rem;
+  gap: 10px;
+      grid-template-areas: "header header header" "corporativo titanium costanera";
+}
+
+.contenido__estacionamientos .estacionamientos__header {
+  text-align: center;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+}
+
+.contenido__estacionamientos .estacionamientos__header h1 {
+  margin-top: 0;
+}
+
+.contenido__estacionamientos .estacionamientos__edificios {
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.contenido__estacionamientos .estacionamientos__edificios .tipo__vehiculo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contenido__estacionamientos .estacionamientos__edificios .tipo__vehiculo p {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contenido__estacionamientos .estacionamientos__edificios .tipo__vehiculo svg {
+  margin-right: 0.5rem;
+}
+
+.contenido__estacionamientos .estacionamientos__edificios .tipo__vehiculo svg path {
+  fill: #002eff;
+}
+
+.contenido__estacionamientos .edificios__corporativo {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: corporativo;
+}
+
+.contenido__estacionamientos .edificios__titanium {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: titanium;
+}
+
+.contenido__estacionamientos .edificios__costanera {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: costanera;
+}
+
+@media only screen and (max-width: 900px) {
+  .contenido__estacionamientos {
+    display: -ms-grid;
+    display: grid;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 1rem;
+    gap: 10px;
+        grid-template-areas: "header" "corporativo" " titanium" " costanera";
+  }
+  .contenido__estacionamientos .estacionamientos__header {
+    text-align: center;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: header;
+  }
+  .contenido__estacionamientos .estacionamientos__header h1 {
+    margin-top: 0;
+  }
+  .contenido__estacionamientos .estacionamientos__edificios {
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .contenido__estacionamientos .estacionamientos__edificios .tipo__vehiculo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .contenido__estacionamientos .estacionamientos__edificios .tipo__vehiculo p {
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .contenido__estacionamientos .estacionamientos__edificios .tipo__vehiculo svg {
+    margin-right: 0.5rem;
+  }
+  .contenido__estacionamientos .estacionamientos__edificios .tipo__vehiculo svg path {
+    fill: #002eff;
+  }
+  .contenido__estacionamientos .edificios__corporativo {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: corporativo;
+  }
+  .contenido__estacionamientos .edificios__titanium {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: titanium;
+  }
+  .contenido__estacionamientos .edificios__costanera {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: costanera;
+  }
+}
+
+/*
+*   Cards
+*/
+.cards__container {
+  grid-column: span 2;
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+}
+
+.cards__container .card {
+  border: 1px solid #dddddd;
+  border-left: 10px solid #002eff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+/*
+*   Alertas
+*/
+.alerta {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.alerta p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.alerta p svg {
+  margin-right: 0.5rem;
+}
+
+.alerta-verde {
+  color: white;
+  background-color: #168916;
+}
+
+/*
+*   Botones
+*/
+.button {
+  border: 1px;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 0.7rem;
+  width: 100%;
+}
+
+/*
+*   Modificador del color del boton
+*/
+.button-blue {
+  background-color: #002eff;
+  color: white;
+}
+
+.button-naranjo {
+  background-color: #ff3d00;
+  color: white;
+}
+
+/*
+*   Formularios
+*/
+.formulario {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formulario .formulario__button {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+@media only screen and (max-width: 900px) {
+  .formulario {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    line-height: 2rem;
+  }
+}
+
+/*
+*   Terminos y Condiciones
+*/
+.terminos__condiciones {
+  margin-bottom: 2rem;
+}
+
+.terminos__condiciones .terminos__condiciones__body {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.terminos__condiciones .terminos__condiciones__body .cards__container {
+  grid-column: span 2;
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+}
+
+.terminos__condiciones .terminos__condiciones__body .terminos__condiciones__acciones {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.terminos__condiciones .terminos__condiciones__body .terminos__condiciones__acciones .checkbox_container {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .terminos__condiciones .terminos__condiciones__body {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
+  .terminos__condiciones .terminos__condiciones__body .cards__container {
+    grid-column: auto;
+    display: -ms-grid;
+    display: grid;
+    gap: 1rem;
+  }
+  .terminos__condiciones .terminos__condiciones__body .terminos__condiciones__acciones {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .terminos__condiciones .terminos__condiciones__body .terminos__condiciones__acciones .checkbox_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+/*
+    Radio Buttons
+*/
+.radio {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.radio .radio__input {
+  display: none;
+}
+
+.radio .radio__radio {
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid #dddddd;
+  border-radius: 50%;
+  margin-right: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 2px;
+}
+
+.radio .radio__radio::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #168916;
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.15s;
+  transition: -webkit-transform 0.15s;
+  transition: transform 0.15s;
+  transition: transform 0.15s, -webkit-transform 0.15s;
+}
+
+.radio .radio__input:checked + .radio__radio::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.md-checkbox {
+  position: relative;
+  text-align: left;
+}
+
+.md-checkbox.md-checkbox-inline {
+  display: inline-block;
+}
+
+.md-checkbox label {
+  cursor: pointer;
+  display: inline;
+  line-height: 1.25em;
+  vertical-align: top;
+  clear: both;
+  padding-left: 1px;
+}
+
+.md-checkbox label:not(:empty) {
+  padding-left: 0.75em;
+}
+
+.md-checkbox label:before, .md-checkbox label:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.md-checkbox label:before {
+  width: 1em;
+  height: 1em;
+  background: #fff;
+  border: 2px solid #dddddd;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+}
+
+.md-checkbox input[type="checkbox"] {
+  outline: 0;
+  visibility: hidden;
+  width: 1.25em;
+  margin: 0;
+  display: block;
+  float: left;
+  font-size: inherit;
+}
+
+.md-checkbox input[type="checkbox"]:checked + label:before {
+  background: #168916;
+  border: 0.125em solid #168916;
+}
+
+.md-checkbox input[type="checkbox"]:checked + label:after {
+  -webkit-transform: translate(0.2em, 0.3em) rotate(-45deg);
+          transform: translate(0.2em, 0.3em) rotate(-45deg);
+  width: 0.7em;
+  height: 0.375em;
+  border: 0.125em solid #fff;
+  border-top-style: none;
+  border-right-style: none;
+}
+/*# sourceMappingURL=main.css.map */
